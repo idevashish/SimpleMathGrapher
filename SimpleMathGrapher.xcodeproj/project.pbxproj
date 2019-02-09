@@ -25,6 +25,7 @@
 		56B4E862220F03E3002F8FB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56B4E864220F03E3002F8FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56B4E86B220F1843002F8FB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		56B4E86C220F6AF9002F8FB5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +42,7 @@
 		56B4E849220F03E2002F8FB5 = {
 			isa = PBXGroup;
 			children = (
+				56B4E86C220F6AF9002F8FB5 /* README.md */,
 				56B4E854220F03E2002F8FB5 /* SimpleMathGrapher */,
 				56B4E853220F03E2002F8FB5 /* Products */,
 			);

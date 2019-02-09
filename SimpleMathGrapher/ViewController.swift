@@ -21,9 +21,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var YSlider: UISlider!
     @IBOutlet weak var ZSlider: UISlider!
     
+    var geometryNode: SCNNode = SCNNode()
+    
+    // Gestures
+    var xPos: Float = 0.0
+    var yPos: Float = 0.0
+    var zPos: Float = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // sceneSetup()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,25 +53,46 @@ class ViewController: UIViewController {
         omniLightNode.position = SCNVector3Make(0, 50, 50)
         scene.rootNode.addChildNode(omniLightNode)
         
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3Make(0, 0, 25)
+        scene.rootNode.addChildNode(cameraNode)
+        
         let boxGeometry = SCNBox(width: 10.0, height: 10.0, length: 10.0, chamferRadius: 1.0)
         let boxNode = SCNNode(geometry: boxGeometry)
         scene.rootNode.addChildNode(boxNode)
         
+        geometryNode = boxNode
+        
         sceneView.scene = scene
-
         sceneView.allowsCameraControl = true
     }
     
     @IBAction func xOnChanged(_ sender: Any) {
-        x.text = "\(XSlider.value)"
+        let val = XSlider.value
+        x.text = "\(val)"
+        
+        xPos = val
+        
+        geometryNode.transform = SCNMatrix4MakeTranslation(xPos, yPos, zPos)
     }
     
     @IBAction func yOnChange(_ sender: Any) {
-        y.text = "\(YSlider.value)"
+        let val = YSlider.value
+        y.text = "\(val)"
+        
+        yPos = val
+        
+        geometryNode.transform = SCNMatrix4MakeTranslation(xPos, yPos, zPos)
     }
     
     @IBAction func zOnChange(_ sender: Any) {
-        z.text = "\(ZSlider.value)"
+        let val = ZSlider.value
+        z.text = "\(val)"
+        
+        zPos = val
+        
+        geometryNode.transform = SCNMatrix4MakeTranslation(xPos, yPos, zPos)
     }
     
 }
